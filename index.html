@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first-task</title>
+
+    <!-- css style -->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      img {
+        width: 100px;
+        height: 600px;
+        border-radius: 10px;
+        transition: 1.5s;
+        object-fit: cover;
+      }
+      .active {
+        width: 700px;
+      }
+      @media only screen and (max-width: 900px) {
+        body {
+          flex-direction: column;
+        }
+        img {
+          width: 90%;
+          height: 60px;
+        }
+        .active {
+          height: 200px;
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="imgs/avenue-g0cb8de5e6_640.jpg" alt="" />
+    <img src="imgs/forest-g00d63ede7_640.jpg" alt="" />
+    <img src="imgs/lake-g185116a13_640.jpg" alt="" class="active" />
+    <img src="imgs/mountains-gaf6b3340a_640.jpg" alt="" />
+    <img src="imgs/nature-wallpaper-gf6e326bda_640.jpg" alt="" />
+
+    <!-- js code -->
+    <script>
+      let images = document.querySelectorAll("img");
+      images.forEach((img) => {
+        img.classList.remove("active");
+
+        img.addEventListener("mouseleave", (e) => {
+          e.target.classList.remove("active");
+        });
+        img.addEventListener("mouseenter", (e) => {
+          e.target.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
